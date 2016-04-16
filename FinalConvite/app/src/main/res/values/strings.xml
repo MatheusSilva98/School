@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FinalConvite</string>
+    <string name="textViewLogin">Login:</string>
+    <string name="textViewSenha">Senha:</string>
+    <string name="buttonLogin">Login</string>
+    <string name="buttonCadastro">Cadastro</string>
+    <string name="buttonBuscarNome">Buscar Por Nome</string>
+    <string name="buttonBuscarQR">Buscar Por QR</string>
+</resources>
