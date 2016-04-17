@@ -8,20 +8,12 @@ public class Administrador implements Serializable{
 
     public Administrador (){}
 
-    public Administrador (int id, String nome, String senha, String email){
+    public Administrador (String senha, String email){
 
         this.email = email;
-        this.nome = nome;
-        this.id = id;
         this.senha = senha;
 
     }
-
-    @SerializedName("id")
-    private int id;
-
-    @SerializedName("nome")
-    private String nome;
 
     @SerializedName("senha")
     private String senha;
@@ -29,11 +21,21 @@ public class Administrador implements Serializable{
     @SerializedName("email")
     private String email;
 
-    public int getId() {
+    @SerializedName("nome")
+    private String nome;
+
+    @SerializedName("id")
+    private Integer id;
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -43,10 +45,6 @@ public class Administrador implements Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSenha() {
-        return senha;
     }
 
     public void setSenha(String senha) {
@@ -65,7 +63,7 @@ public class Administrador implements Serializable{
     @Override
     public String toString() {
 
-        return "[id: " + id + "; nome: " + nome + "; email: " + email + "]";
+        return "{email: " + email + "; senha: " + senha + "}";
 
     }
 }

@@ -35,7 +35,7 @@ public class CadastroAsyncTask extends AsyncTask <Pessoa, Void, Response>{
 
         Response response = null;
 
-        Pessoa pessoa = new Pessoa();
+        Pessoa pessoa = params[0];
 
         Gson gson = new Gson();
 

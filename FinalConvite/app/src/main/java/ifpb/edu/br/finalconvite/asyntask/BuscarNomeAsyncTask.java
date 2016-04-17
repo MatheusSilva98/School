@@ -36,7 +36,7 @@ public class BuscarNomeAsyncTask extends AsyncTask<Pessoa, Void, Response> {
 
             Gson gson = new Gson();
 
-            response = HttpService.sendGetRequest("convidado/pesquisar/nome/{nome}", gson.toJson(pessoa));
+            response = HttpService.sendGetRequest("convidado/pesquisar/nome/Jose", gson.toJson(pessoa));
 
         } catch (IOException e) {
 
@@ -52,6 +52,7 @@ public class BuscarNomeAsyncTask extends AsyncTask<Pessoa, Void, Response> {
 
         Log.i("EditTextListener", "Código HTTP: " + codeHttp
                 + " Conteúdo: " + response.getContentValue());
+        Log.i("EditTextListener"," Conteúdo: " + response.getContentValue());
 
         if (codeHttp != HttpURLConnection.HTTP_OK) {
 

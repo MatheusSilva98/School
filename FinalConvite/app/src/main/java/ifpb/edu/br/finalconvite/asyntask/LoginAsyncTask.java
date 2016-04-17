@@ -1,3 +1,4 @@
+
 package ifpb.edu.br.finalconvite.asyntask;
 
 import android.app.Activity;
@@ -31,11 +32,13 @@ public class LoginAsyncTask extends AsyncTask<Administrador, Void, Response> {
     }
 
     @Override
-    protected Response doInBackground(Administrador... params) {
+    protected Response doInBackground(Administrador... administradors) {
 
         Response response = null;
 
-        Administrador administrador = null;
+        Administrador administrador = administradors[0];
+
+        Log.i("FinalConvite", "doInBack"+administradors[0]);
 
         Gson gson = new Gson();
 
@@ -60,12 +63,7 @@ public class LoginAsyncTask extends AsyncTask<Administrador, Void, Response> {
         Log.i("EditTextListener", "Código HTTP: " + codeHttp
                 + " Conteúdo: " + response.getContentValue());
 
-        if (codeHttp != HttpURLConnection.HTTP_OK) {
-
-            Log.e("FinalConvite","OnPostExecute: Erro");
-            Toast.makeText(activity,"Usuario ou Senha incorreta", Toast.LENGTH_LONG).show();
-
-        } else {
+        if (codeHttp == HttpURLConnection.HTTP_OK) {
 
             Gson gson = new Gson();
 
@@ -76,6 +74,11 @@ public class LoginAsyncTask extends AsyncTask<Administrador, Void, Response> {
             Intent intent = new Intent(activity, MainActivity.class);
             activity.startActivity(intent);
             activity.finish();
+
+        } else {
+
+            Log.e("FinalConvite","OnPostExecute: Erro");
+            Toast.makeText(activity,"Usuario ou Senha incorreta", Toast.LENGTH_LONG).show();
 
         }
     }

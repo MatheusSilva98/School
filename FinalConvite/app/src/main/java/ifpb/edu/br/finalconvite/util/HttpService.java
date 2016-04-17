@@ -22,6 +22,7 @@ public class HttpService {
         Response response = null;
 
         URL url = new URL(URL_CONTEXT + service);
+        Log.i("Aqui", "Aqui "+ URL_CONTEXT + service);
 
         connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true);
@@ -53,6 +54,8 @@ public class HttpService {
         Response response = null;
 
         URL url = new URL(URL_CONTEXT + service);
+        Log.i("Aqui", "Aqui "+ URL_CONTEXT + service);
+        Log.i("Aqui:", "Aqui "+jsonObject);
 
         connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true);
