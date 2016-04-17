@@ -1,4 +1,6 @@
 <resources>
+
+    <string name="messageSplashScreen">Bem vindo</string>
     <string name="app_name">FinalConvite</string>
     <string name="textViewLogin">Login:</string>
     <string name="textViewSenha">Senha:</string>
@@ -6,4 +8,10 @@
     <string name="buttonCadastro">Cadastro</string>
     <string name="buttonBuscarNome">Buscar Por Nome</string>
     <string name="buttonBuscarQR">Buscar Por QR</string>
+    <string name="textViewNome">Nome:</string>
+    <string name="textViewEmail">Email:</string>
+    <string name="textViewEndereco">Endereco:</string>
+    <string name="textViewCpf">CPF:</string>
+    <string name="buttonCadastrar">Cadastrar</string>
+
 </resources>

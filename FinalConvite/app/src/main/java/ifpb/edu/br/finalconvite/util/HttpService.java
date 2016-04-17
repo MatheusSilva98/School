@@ -15,6 +15,36 @@ public class HttpService {
 
     private static final String URL_CONTEXT = "http://ladoss.com.br:8773/Convite_SERVICE/";
 
+    public static Response sendGetRequest(String service, String jsonObject)
+            throws MalformedURLException, IOException{
+
+        HttpURLConnection connection = null;
+        Response response = null;
+
+        URL url = new URL(URL_CONTEXT + service);
+
+        connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true);
+        connection.setDoInput(true);
+        connection.setRequestMethod("GET");
+        connection.connect();
+        connection.setRequestProperty("Content-Type", "application/json");
+
+        connection.connect();
+
+        DataOutputStream stream = new DataOutputStream(connection.getOutputStream());
+
+        stream.writeBytes(jsonObject);
+        stream.flush();
+        stream.close();
+
+        int httpCode = connection.getResponseCode();
+        String content = getHttpContent(connection);
+        response = new Response(httpCode, content);
+
+        return response;
+
+    }
 
     public static Response sendJSONPostResquest(String service, String jsonObject)
             throws MalformedURLException, IOException {

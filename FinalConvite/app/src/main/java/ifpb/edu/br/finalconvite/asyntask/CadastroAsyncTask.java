@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -17,31 +16,32 @@ import java.util.List;
 
 import ifpb.edu.br.finalconvite.activity.MainActivity;
 import ifpb.edu.br.finalconvite.entidades.Administrador;
+import ifpb.edu.br.finalconvite.entidades.Pessoa;
 import ifpb.edu.br.finalconvite.util.HttpService;
 import ifpb.edu.br.finalconvite.util.Response;
 
-public class LoginAsyncTask extends AsyncTask<Administrador, Void, Response> {
+public class CadastroAsyncTask extends AsyncTask <Pessoa, Void, Response>{
 
     private Activity activity;
 
-    public LoginAsyncTask(Activity activity){
+    public CadastroAsyncTask(Activity activity){
 
         this.activity = activity;
 
     }
 
     @Override
-    protected Response doInBackground(Administrador... params) {
+    protected Response doInBackground(Pessoa... params) {
 
         Response response = null;
 
-        Administrador administrador = null;
+        Pessoa pessoa = new Pessoa();
 
         Gson gson = new Gson();
 
         try {
 
-            response = HttpService.sendJSONPostResquest("usuario/login", gson.toJson(administrador));
+            response = HttpService.sendJSONPostResquest("convidade/cadastro", gson.toJson(pessoa));
 
         } catch (IOException e) {
 
@@ -49,7 +49,6 @@ public class LoginAsyncTask extends AsyncTask<Administrador, Void, Response> {
         }
 
         return response;
-
     }
 
     @Override
@@ -63,15 +62,15 @@ public class LoginAsyncTask extends AsyncTask<Administrador, Void, Response> {
         if (codeHttp != HttpURLConnection.HTTP_OK) {
 
             Log.e("FinalConvite","OnPostExecute: Erro");
-            Toast.makeText(activity,"Usuario ou Senha incorreta", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "Algum erro ocorreu", Toast.LENGTH_LONG).show();
 
         } else {
 
             Gson gson = new Gson();
 
-            Administrador administrador = gson.fromJson(response.getContentValue(), Administrador.class);
+            Pessoa pessoa = gson.fromJson(response.getContentValue(), Pessoa.class);
 
-            Toast.makeText(activity,administrador+" está logado no sistema", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity,pessoa+" cadastro com sucesso", Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(activity, MainActivity.class);
             activity.startActivity(intent);

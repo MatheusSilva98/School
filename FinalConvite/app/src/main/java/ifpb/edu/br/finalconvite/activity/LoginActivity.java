@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -11,7 +12,7 @@ import ifpb.edu.br.finalconvite.R;
 import ifpb.edu.br.finalconvite.asyntask.LoginAsyncTask;
 import ifpb.edu.br.finalconvite.entidades.Administrador;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements OnClickListener{
 
     private EditText editTextLogin;
     private EditText editTextSenha;
@@ -26,25 +27,20 @@ public class LoginActivity extends Activity {
         editTextSenha = (EditText) findViewById(R.id.editTextSenha);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        buttonLogin.setOnClickListener(this);
 
-                tentarLogar();
 
-            }
-        });
     }
 
-    public void tentarLogar(){
+    @Override
+    public void onClick(View v) {
 
         Administrador administrador = new Administrador();
-        administrador.setNome(editTextLogin.getText().toString());
+        administrador.setEmail(editTextLogin.getText().toString());
         administrador.setSenha(editTextSenha.getText().toString());
 
         LoginAsyncTask loginAsyncTask = new LoginAsyncTask(this);
         loginAsyncTask.execute(administrador);
 
     }
-
 }

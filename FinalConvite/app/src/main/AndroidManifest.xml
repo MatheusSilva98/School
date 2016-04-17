@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ifpb.edu.br.finalconvite">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,7 +21,8 @@
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.CadastroActivity" />
         <activity android:name=".activity.BuscarNomeActivity" />
-        <activity android:name=".activity.BuscarQRActivity"></activity>
+        <activity android:name=".activity.BuscarQRActivity" />
+        <activity android:name=".activity.ItemSelectedActivity"></activity>
     </application>
 
 </manifest>
