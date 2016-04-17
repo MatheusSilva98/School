@@ -3,6 +3,7 @@
     package="ifpb.edu.br.finalconvite">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -22,7 +23,7 @@
         <activity android:name=".activity.CadastroActivity" />
         <activity android:name=".activity.BuscarNomeActivity" />
         <activity android:name=".activity.BuscarQRActivity" />
-        <activity android:name=".activity.ItemSelectedActivity"></activity>
+        <activity android:name=".activity.PessoaActivity"></activity>
     </application>
 
 </manifest>

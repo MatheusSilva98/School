@@ -96,7 +96,7 @@ public class BuscarNomeActivity extends Activity implements TextWatcher, OnItemC
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Intent it = new Intent(this, ItemSelectedActivity.class);
+        Intent it = new Intent(this, PessoaActivity.class);
         it.putExtra("pessoa", pessoas.get(position));
         startActivity(it);
 

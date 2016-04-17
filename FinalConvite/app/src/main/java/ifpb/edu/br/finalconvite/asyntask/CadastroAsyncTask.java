@@ -41,7 +41,7 @@ public class CadastroAsyncTask extends AsyncTask <Pessoa, Void, Response>{
 
         try {
 
-            response = HttpService.sendJSONPostResquest("convidade/cadastro", gson.toJson(pessoa));
+            response = HttpService.sendJSONPostResquest("convidado/cadastro", gson.toJson(pessoa));
 
         } catch (IOException e) {
 
