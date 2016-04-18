@@ -32,7 +32,8 @@
 		<property name="connection.pool_size">20</property>
 
 		<!-- Entidades -->
-		<mapping class="entidade.Pessoa" />
-
+		<mapping class="entidades.Pessoa" />
+		<mapping class="entidades.Evento" />
+		
 	</session-factory>
 </hibernate-configuration>

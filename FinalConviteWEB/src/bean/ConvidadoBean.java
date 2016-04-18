@@ -37,6 +37,20 @@ public class ConvidadoBean {
 
 	}
 	
+	public void VerificarNome() throws IOException{
+		
+		ConvidadoDAO convidadoDAO = new ConvidadoDAO();
+		Convidado convidadoAux = new Convidado();
+		
+		convidadoAux = convidadoDAO.getByNome(convidado.getNome());
+		
+		convidado.setCpf(convidadoAux.getCpf());
+		convidado.setEndereco(convidadoAux.getEndereco());
+		convidado.setIdentidade(convidadoAux.getIdentidade());
+		convidado.setTipo(convidadoAux.getIdentidade());
+		
+		
+	}
 	//Metodo VerificarCodigo
 	
 	//Metodo VerificarNome
